@@ -1,0 +1,35 @@
+.field{
+    border: solid black;
+    width: 100%;
+    height: 100vh;
+    padding: 50px;
+}
+.circle{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.lost{
+    height: 100vh;
+    width: 100%;
+    background-color: #0101054b;
+    position: absolute;
+    top: 0;
+    right: 0;
+    visibility: hidden;
+    color: white;
+    font-size: 80px;
+    text-align: center;
+}
+
+    .lost > p{
+        margin-top: calc(50vh - 40px);
+    }
+
+.visible{
+    visibility: visible;
+}
