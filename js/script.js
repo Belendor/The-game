@@ -1,52 +1,69 @@
-setTimeout(game, 10000)
+let field = document.querySelector(".field")
+let time = document.querySelector(".time")
+let counter = document.querySelector(".streak")
+time.innerHTML = gameStart
+
+counterKill = 0
 
 function game(){
 
-let field = document.querySelector(".field")
+setInterval(countdwon, 1000)
 
+function countdwon(){
+    if (time.innerHTML == 1){
+        time.remove()
+        
+    }
+    
+    time.innerHTML--
+    
+}
 
+setInterval(createCircle, 5000);
+function createCircle(){
+    
+    for(let i = 0; i<circleCount; i++){
 
-function createCircle(count){
-    for(let i = 0; i<count;i++){
-        field.innerHTML += `<div class="circle"
-                                 style="top: ${Math.floor(Math.random()*80)}%;
-                                        right: ${Math.floor(Math.random()*80)}%"></div>`
+        if (field.querySelectorAll(".circle").length >10){
+            return document.getElementById("lost-screen").classList.add("visible")
+        } 
+
+    field.innerHTML += `<div class="circle"
+                             style="left: calc(${Math.floor(Math.random()*90)}%);
+                                    top: calc(${Math.floor(Math.random()*90)}vh)"></div>`
+        
+                       
     }
 }
 
-createCircle(circleCount)
-
-setTimeout(game, 3000)
-
-function timeCircle(){
-    field.innerHTML += `<div class="circle"
-                                 style="top: ${Math.floor(Math.random()*100)}%;
-                                        right: ${Math.floor(Math.random()*100)}%"></div>`
-
 }
 
 
-let circles = field.querySelectorAll(".circle")
-console.log(field);
-console.log(circles[0]);
-
-for(let i = 0;i<circleCount;i++){
-    circles[i].addEventListener("click", onClick, {once:true})
-}
-
-function onClick(a){
-    const circle = a.target
-   circle.remove()
+function kill(){
     
-}
-
-if(circles.length > 10){
-    document.getElementById("lost-screen").classList.add("visible")
     
+    setInterval(killCircle, 5000)
+
+    function killCircle(){
+
+        let circles = field.querySelectorAll(".circle")
+
+for (let i =0;i<circles.length;i++){
+    circles[i].addEventListener("click", removeCircle, {once:true})
+}
+
+function removeCircle(a){
+    let clickedCircle = a.target
+    clickedCircle.remove()
+    counterKill += 1
+    counter.innerHTML = counterKill
+}
+        
+
+    }
+
 }
 
 
-}
-
-
-game ()
+game()
+kill()
