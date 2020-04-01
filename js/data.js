@@ -1,3 +1,3 @@
-const circleCount = 10;
-const gameStart = 5;
-const dificultyLevel = 5000
+const circleCount = 8;
+const gameStart = 4;
+const dificultyLevel = 4000

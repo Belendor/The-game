@@ -2,18 +2,62 @@
     border: solid black;
     width: 100%;
     height: 100vh;
-    padding: 50px;
     position: relative;
+    user-select: none;
+    overflow: hidden;
 }
+
 .circle{
     position: absolute;
-    width: 50px;
-    height: 50px;
+    display: inline-block;
+    width: 10vmin;
+    height: 10vmin;
     background-color: red;
     border-radius: 50%;
     cursor: pointer;
     z-index: 9;
+    user-select: none;
+    opacity: 0.8;
 }
+.circle.lvl2{
+    position: absolute;
+    display: inline-block;
+    width: 10vmin;
+    height: 10vmin;
+    background-color: rgb(255, 0, 221);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 9;
+    user-select: none;
+    opacity: 0.8;
+}
+    .killed{
+        position: absolute;
+        width: 10vmin;
+        height: 10vmin;
+        background-color: transparent;
+        border: 1vmin solid red;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 9;
+        user-select: none;
+        animation-name: kill-animation;
+        animation-duration: 0.2s;
+    }
+    .killedlvl2{
+        position: absolute;
+        width: 10vmin;
+        height: 10vmin;
+        background-color: transparent;
+        border: 1vmin solid rgb(255, 0, 221);
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 9;
+        user-select: none;
+        animation-name: kill-animation;
+        animation-duration: 0.2s;
+    }
+
 
 .lost{
     height: 100vh;
@@ -24,33 +68,53 @@
     right: 0;
     visibility: hidden;
     color: white;
-    font-size: 80px;
+    font-size: 30vh;
     text-align: center;
     z-index: 10;
+    overflow: hidden;
+    user-select: none;
 }
 
     .lost > p{
-        margin-top: calc(50vh - 90px);
+        margin-top: calc(50vh - 30vh);
+        user-select: none;
     }
 
 .visible{
     visibility: visible;
 }
 button{
-    width: 90px;
-    height: 30px;
+    width: 20vmin;
+    height: 10vmin;
+    font-size: 5vmin;
 }
 
 .timer{
     position: absolute;
-    top: calc(50vh - 80px);
-    left: calc(50% - 30px);
+    top: calc(50vh - 20vmin); 
+    left: 50%;
     cursor: default;
+    font-size: 10vmin;
+    user-select: none;
 }
 
+/* Streak element */
 .timer > p{
-    font-size: 120px;
+    font-size: 20vmin;
 }
 .streak{
-    cu
+    font-size: 20vmin;
+}
+
+@keyframes kill-animation{
+    0%{
+        width: 10vmin;
+        height: 10vmin;
+        opacity: 1;
+    }
+    100%{
+        width: 15vmin;
+        height: 15vmin;
+        opacity: 0;
+    }
 }
